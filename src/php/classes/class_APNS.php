@@ -668,7 +668,7 @@ class APNS {
 					
 					$fk_device = $this->db->prepare($list[$i]);
 					$message = $this->_jsonEncode($usermessage);
-					$message = $this->db->prepare($message);
+					$message = $this->db->prepare($message, ture);
 					$delivery = (!empty($when)) ? "'{$when}'":'NOW()';
 					
 					$this->db->query("SET NAMES 'utf8';"); // force utf8 encoding if not your default
