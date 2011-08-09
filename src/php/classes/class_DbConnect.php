@@ -320,7 +320,9 @@ class DbConnect
 
 		if ($do_like)
 		{
-			$value = str_replace(array('%', '_'), array('\%', '\_'), $value);
+                        //添加了 '\\\\' －》 '\\' 解决无法显示 emoji
+                        //Fixed emoji icon can't display
+			$value = str_replace(array('%', '_','\\\\'), array('\%', '\_', '\\'), $value); 
 		}
 
 		return self::$instance->real_escape_string($value);
